@@ -1,0 +1,123 @@
+name: Pinkoc for Minecraft RBB Bug 报告
+description: 报告在游玩 Pinkoc for Minecraft 时出现的 Bug。请勿提交无意义 Bug。
+title: "[Bug] "
+labels: ["bug", "need-triage"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你提交 Bug 报告！在创建 Issue 之前，请先确认：
+        - 已搜索过现有 Issue，没有重复报告
+        - 已尝试在 Java 版和基岩版重现此 Bug
+        - 使用与服务器内核相同的版本（如旧小游戏内核为 26.2，使用 Java 版 26.2 或基岩版 26.40）
+        请尽量提供完整信息，这能显著加快问题定位速度。
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: 前置检查
+      description: 提交前请确认以下事项
+      options:
+        - label: 我已搜索过现有 Issue，未发现相同问题
+          required: true
+        - label: 我已尝试在 Java 版和基岩版重现此问题
+          required: true
+        - label: 此问题可以稳定复现
+          required: true
+        - label: 我确认我没有认真检查前置检查，勾选了这个选项，并同意这个 Issue 提交后可以直接被判为无效。
+          required: true
+        - label: 我在别的服务器也有遇到过这个问题
+          required: true
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: 问题类型
+      description: 这个问题主要属于哪一类？
+      options:
+        - 翻译错误 / 未翻译
+        - 提示“尝试此行此命令时出现致命错误”
+        - 被频繁踢出服务器
+        - 界面 / 交互异常
+        - 功能无法使用
+        - 其他
+      default: 0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: server
+    attributes:
+      label: 所在服务器
+      description: 这个问题主要出现在哪个服务器？若涉及多个服务器，请在复现步骤中说明。
+      options:
+        - 原版生存
+        - 单方块生存
+        - Blood β
+        - 大厅
+        - 代理（全部）
+        - 旧版小游戏
+        - 新の起床战争
+        - 新の空岛战争
+        - CSGO Beta
+        - 绵羊战争
+        - 创造服
+        - 古振兴の地下室
+      default: 0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: 复现平台
+      description: 这个问题能在哪些版本中复现？
+      options:
+        - 仅 Java 版
+        - 仅基岩版
+        - Java 版和基岩版均可复现
+        - 不确定
+      default: 0
+    validations:
+      required: true
+
+  - type: input
+    id: minecraft-version
+    attributes:
+      label: Minecraft 版本
+      description: 请提供你正在使用的 Minecraft 版本号（如 26.2、BE26.40）
+      placeholder: "如 26.2、BE26.40"
+    validations:
+      required: true
+
+  - type: input
+    id: player-id
+    attributes:
+      label: 玩家 ID 名
+      description: 请提供你的玩家 ID 名
+      placeholder: "如 FOTOP"
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: 运行环境
+      description: 提供你的运行操作系统。部分情况下，系统版本差异会导致异常
+      placeholder: "例如：macOS 14.4 / Android 12 / Windows 10 Pro"
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤
+      description: 请按顺序写出能稳定触发该问题的具体操作
+      placeholder: |
+        示例：
+        1. 发送命令：/menu
+        2. 观察到仅播放了箱子打开声音，未打开菜单界面
+        3. 发现提示消息“尝试此行此命令时出现致命错误”
+    validations:
+      required: true
